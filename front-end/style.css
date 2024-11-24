@@ -1,0 +1,31 @@
+header{
+    /* max-height: 10vh; */
+    border-bottom: 1px solid;
+    border-bottom-color: #25262b;
+}
+
+main {
+    min-height: 80vh;
+    max-height: 90vh;
+}
+
+footer {
+    max-height: 1vh;
+    position:absolute;
+    bottom:0;
+    width: 100%;
+    border-top: 1px solid;
+    border-top-color: #25262b;
+}
+
+.login-container{
+    padding-top: 15%;
+}
+
+.submit-button{
+    padding: 30px;
+}
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Blurring</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/2e277278ff.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="bd-header mb-3">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item has-text-weight-bold has-text-white-bis has-background-link m-3 p-2 button" href="#">
+                    JYY Labs
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item" href="./index.html"> Home </a>
+
+                    <a class="navbar-item"> About </a>
+                    <div class="navbar-item">
+                        <div class="buttons">
+                        <a class="button is-info" href="./signup.html"><strong>Sign up</strong></a>
+                        <a class="button is-light" href="./login.html">Log in </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="login-section">
+            <div class="container login-container">
+                <form class="box">
+                    <div class="field">
+                      <label class="label">Email</label>
+                      <div class="control">
+                        <input class="input" type="email" placeholder="e.g. alex@example.com" />
+                      </div>
+                    </div>
+                  
+                    <div class="field">
+                      <label class="label">Password</label>
+                      <div class="control">
+                        <input class="input" type="password" placeholder="********" />
+                      </div>
+                    </div>
+                    <div class="container has-text-centered py-4">
+                        <button class="button is-white is-fullwidth">Sign in</button>
+                    </div>
+                    <div class="container has-text-centered py-2">
+                        <p class="mb-3">No account?</p>
+                        <button class="button is-info">Sign Up</button>
+                    </div>
+                  </form>
+                </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Serverless Face Blurring Application</strong> by James Young</a>.
+            </p>
+            <p>
+                See the source code on <a href="http://" target="_blank">here</a> <a href="https://github.com/jamesyoung-15/aws-serverless-face-blurring" target="_blank"><i class="lni lni-github-original"></i></a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="./navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

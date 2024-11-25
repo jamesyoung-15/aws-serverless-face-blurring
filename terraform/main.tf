@@ -1,8 +1,3 @@
-provider "aws" {
-  region  = "us-east-1"
-  profile = "Dev"
-}
-
 # API Gateway
 resource "aws_apigatewayv2_api" "api_gateway" {
   name          = "face-blur-http-api"

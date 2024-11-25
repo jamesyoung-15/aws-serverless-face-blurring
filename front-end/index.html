@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/2e277278ff.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- NavBar Header -->
     <header class="bd-header mb-3">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
@@ -55,6 +56,7 @@
         </nav>
     </header>
     
+    <!-- Main Content -->
     <main class="container">
         <section class="section">
             <div class="blur-about has-text-centered">
@@ -63,20 +65,21 @@
                     Upload an image with human faces and the faces in the image will be blurred for anonymity.
                 </h2>
             </div>
-            <div class="container has-text-centered mt-6">
+            <div class="container is-centered has-text-centered mt-6">
                 <div class="file is-centered is-danger has-name is-boxed">
                     <label class="file-label">
-                        <input class="file-input" type="file" name="resume" />
+                        <input class="file-input" type="file" name="image-file" accept="image/*" id="image-upload" />
                         <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span class="file-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </span>
+                            <span class="file-label"> Upload Image </span>
                         </span>
-                        <span class="file-label"> Upload Image </span>
-                        </span>
-                        <span class="file-name"> No Image Uploaded Yet </span>
+                        <span class="file-name" id="image-file-name"> No Image Uploaded Yet </span>
                     </label>
-                    </div>
                 </div>
+                <button class="button is-warning is-hidden" id="blur-button">Detect and Blur Faces!</button>
+            </div>
           </section>
           <section class="section my-6">
             <div class="grid">
@@ -87,9 +90,10 @@
                     <img src="assets/messi.jpg" />
                 </div>
             </div>
-            
           </section>
     </main>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
@@ -103,7 +107,9 @@
             </p>
         </div>
     </footer>
-
+    
+    <!-- Scripts -->
+     <script src="./fileupload.js"></script>
     <script src="./ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

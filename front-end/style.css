@@ -1,21 +1,22 @@
+html, body { height: 100vh; }
+
 header{
     /* max-height: 10vh; */
     border-bottom: 1px solid;
     border-bottom-color: #25262b;
 }
 
-main {
-    min-height: 80vh;
-    max-height: 90vh;
+main{
+    min-height: 87vh;
 }
 
 footer {
     max-height: 1vh;
-    position:absolute;
-    bottom:0;
-    width: 100%;
     border-top: 1px solid;
     border-top-color: #25262b;
+    /* position:absolute; */
+    /* bottom:0; */
+    /* width: 100%; */
 }
 
 .login-container{
@@ -28,4 +29,21 @@ footer {
 
 .hidden{
     display: none;
+}
+
+.blur-example{
+    max-height: 500px;
+}
+
+
+@media screen and (max-height: 1210px) {
+    .blur-example{
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .blur-example{
+        max-height: 200px;
+    }
 }

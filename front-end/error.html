@@ -55,57 +55,22 @@
             </div>
         </nav>
     </header>
-    
-    <!-- Main Content -->
-    <main class="container">
-        <section class="section">
-            <div class="blur-about has-text-centered">
-                <h1 class="title">Image Face Blurring</h1>
-                <h2 class="subtitle pt-4">
-                    Upload an image with human faces and the faces in the image will be blurred for anonymity.
+    <main class="hero">
+        <div class="hero-body">
+            <div class="container has-text-centered pt-6">
+                <h1 class="title has-text-danger pt-6">
+                    Error
+                </h1>
+                <h2 class="subtitle has-text-danger pt-3">
+                    An error occurred. Please try again.
                 </h2>
-                <h2 class="subtitle">Max image size: 14MB</h2>
+                <a href="./index.html" class="button is-danger">Go back</a>
             </div>
-            <div class="container is-centered has-text-centered mt-6">
-                <div class="file is-centered is-danger has-name is-boxed">
-                    <label class="file-label">
-                        <input class="file-input" type="file" name="image-file" accept="image/*" id="image-upload" />
-                        <span class="file-cta">
-                            <span class="file-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </span>
-                            <span class="file-label"> Upload Image </span>
-                        </span>
-                        <span class="file-name" id="image-file-name"> No Image Uploaded Yet </span>
-                    </label>
-                </div>
-                <button class="button is-warning is-hidden js-modal-trigger" data-target="modal-js-example" id="blur-button">Detect and Blur Faces!</button>
-            </div>
-            <div class="modal" id="modal">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                  <header class="modal-card-head">
-                    <p class="modal-card-title">Blurring Progress</p>
-                    <button class="delete" aria-label="close" id="close-modal"></button>
-                  </header>
-                  <section class="modal-card-body" id="modal-message">
-                    <h1 class="subtitle has-text-danger">Please do not refresh page!</h1>
-                    <p>Uploading Image...</p>
-                  </section>
-                  <footer class="modal-card-foot is-hidden">
-                    <div class="buttons">
-                      <button class="button is-success">Download New Image</button>
-                    </div>
-                  </footer>
-                </div>
-              </div>
-          </section>
-          <section class="container my-auto mx-auto">
-            <figure class="image my-auto mx-auto is-5by4 mx-2 blur-example">
-                <img src="assets/image-blur-example.png" />
-            </figure>
-          </section>
+        </div>
+
+
     </main>
+
 
     <!-- Footer -->
     <footer class="footer mt-4">
@@ -121,9 +86,7 @@
             </p>
         </div>
     </footer>
-    
-    <!-- Scripts -->
-     <script src="./fileupload.js"></script>
-    <script src="./ui.js"></script>
+
+    <script src="ui.js"></script>
 </body>
 </html>

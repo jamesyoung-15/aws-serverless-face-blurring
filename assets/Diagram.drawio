@@ -13,8 +13,8 @@
         <mxCell id="jZVaUwOg5UY3L9NAnvdq-73" value="S3" style="outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=13;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;labelBackgroundColor=none;" parent="jZVaUwOg5UY3L9NAnvdq-71" vertex="1">
           <mxGeometry x="186" y="85" width="78" height="78" as="geometry" />
         </mxCell>
-        <mxCell id="ASHzGRQUF6kaOziHz2nL-23" value="&lt;div&gt;Trigger&amp;nbsp;&lt;/div&gt;&lt;div&gt;Upload Lambda&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" edge="1" parent="jZVaUwOg5UY3L9NAnvdq-71" source="jZVaUwOg5UY3L9NAnvdq-74" target="ifsCe7wSicus5D4EdEdn-16">
-          <mxGeometry x="-0.0108" y="17" relative="1" as="geometry">
+        <mxCell id="ASHzGRQUF6kaOziHz2nL-23" value="&lt;div&gt;Trigger&amp;nbsp;&lt;/div&gt;&lt;div&gt;Upload&amp;nbsp;&lt;/div&gt;&lt;div&gt;Lambda&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" edge="1" parent="jZVaUwOg5UY3L9NAnvdq-71" source="jZVaUwOg5UY3L9NAnvdq-74" target="ifsCe7wSicus5D4EdEdn-16">
+          <mxGeometry x="-0.0108" y="27" relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="310" y="332" />
               <mxPoint x="310" y="332" />

@@ -1,0 +1,1 @@
+curl -X POST https://my-api/prod/upload -H "Content-Type: application/json" -d '{"content": "iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII"}'

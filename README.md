@@ -26,6 +26,7 @@ TODO.
 
 #### Front-End
 
+- Using Cloudflare for DNS and also includes CDN and TLS with static website stored on S3
 - User chooses image to upload, triggers PUT request through API
 - After upload, website will poll every few seconds for job update until completed, then show new image to user available to download
 

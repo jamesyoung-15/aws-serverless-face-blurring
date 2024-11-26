@@ -11,6 +11,9 @@ const errorModal = document.getElementById("error-modal");
 const errorModalMessage = document.getElementById("error-modal-message");
 const closeErrorModal = document.getElementById("close-error-modal");
 
+// URLs
+const upload_api = "https://79u3dc6bo9.execute-api.us-east-1.amazonaws.com/" + "prod/upload";
+
 // helper function to return file size in human readable format
 let returnFileSize = (size) => {
     if(size == 0) return "0 Bytes";
@@ -47,8 +50,6 @@ uploadElement.addEventListener("change", () => {
     let imageFileName = document.getElementById("image-file-name");
     const image_file = uploadElement.files[0];
     if (uploadElement.files.length == 1) {
-        console.log("File selected: ", image_file);
-
         // check if file size is greater than 15MB
         let fileSize = image_file.size
         let fileSizeFormatted = returnFileSize(image_file.size);
@@ -74,21 +75,24 @@ const uploadImage = async (image_file) => {
     // newTextArea.innerText = image_base64;
     // newTextArea.classList.add("textarea", "is-info");
     // modalMessage.appendChild(newTextArea);
+    console.log("Image base64: ", image_base64);
+    
+    // strip off the data:image/jpeg;base64, part
+    image_base64 = image_base64.split(",")[1];
 
     // send image to server
-    // let response = await fetch("/upload", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         image_base64: image_base64
-    //     })
-    // });
+    let response = await fetch(upload_api, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            content: image_base64
+        })
+    });
 
-    // let data = await response.json();
+    let data = await response.json();
     // console.log("Response: ", data);
-    data = "200 OK";
     return data;
 }
 
@@ -103,9 +107,9 @@ blurButton.addEventListener("click", () => {
         console.log("Image file: ", image_file);
         uploadImage(image_file).then((uploadResponse) => {
             console.log("Upload response: ", uploadResponse);
-            if (uploadResponse.includes("200") ){
+            if (uploadResponse.message.includes("success") ){
                 addModalMessage("Image uploaded successfully to server!", "has-text-success");
-                addModalMessage("Processing your image...");
+                addModalMessage(`Processing your image with JobID: ${uploadResponse.JobID}...`);
             }
         }).catch((error) => {
             console.log("Error uploading image: ", error);
@@ -114,8 +118,13 @@ blurButton.addEventListener("click", () => {
     }
 });
 
+// close modal, remove messages
 closeModal.addEventListener("click", () => {
     modalElement.classList.remove("is-active");
+    // remove children elements
+    while (modalMessage.firstChild) {
+        modalMessage.removeChild(modalMessage.firstChild);
+    }
 });
 
 closeErrorModal.addEventListener("click", () => {

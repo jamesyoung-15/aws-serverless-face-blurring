@@ -25,6 +25,11 @@ variable "subdomain_website" {
 variable "subdomain_api" {
   description = "Subdomain for API Gateway."
   type        = string
-  default     = "api.faceblur"
+  default     = "api"
   
+}
+
+variable "cloudflare_api_token" {
+  description = "Cloudflare API token."
+  type        = string
 }

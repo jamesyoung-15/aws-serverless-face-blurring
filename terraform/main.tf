@@ -5,6 +5,7 @@ resource "aws_apigatewayv2_api" "api_gateway" {
   cors_configuration {
     allow_methods = ["POST"]
     allow_origins = ["*"]
+    allow_headers = ["*"]
   }
   tags = {
     "application"       = "face-blurring"
@@ -76,8 +77,8 @@ resource "aws_lambda_permission" "api_gateway_upload_lambda_permission" {
 # Create CNAMES for API Gateway
 resource "cloudflare_record" "api_gateway_cname" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = "${var.subdomain_api}.${var.site_domain}"
-  value   = "${aws_apigatewayv2_api.api_gateway.api_endpoint}/prod"
+  name    = "${var.subdomain_api}${var.subdomain_website}.${var.site_domain}"
+  value   = "${trimprefix(aws_apigatewayv2_api.api_gateway.api_endpoint, "https://")}"
   type    = "CNAME"
 
   ttl     = 1

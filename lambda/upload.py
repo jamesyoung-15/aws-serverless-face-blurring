@@ -51,5 +51,14 @@ def lambda_handler(event, context):
     
     return {
         'statusCode': 200,
-        'body': json.dumps({'message': response_message, 'JobID': unique_str})
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'POST'
+        },
+        'body': json.dumps({
+            'message': response_message,
+            'JobID': unique_str
+        })
     }

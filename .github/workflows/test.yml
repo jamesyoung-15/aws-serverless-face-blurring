@@ -3,7 +3,7 @@ name: Test Self-hosted Runner for Github Actions
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
     test:

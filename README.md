@@ -1,18 +1,20 @@
 # AWS Serverless Image Face Blurring
 
-Serverless application that blurs faces in an image using AWS services (Rekognition, S3, SQS, etc.). 
+Serverless application that blurs faces in an image using AWS services (Rekognition, S3, SQS, etc.). Not completed yet.
 
-For a simpler self-hostable open-source alternative, see my old project [here](https://github.com/jamesyoung-15/serverless-face-blurring) (OpenFaaS instead of Lambda, MinIO instead of S3).
+Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
+
+For a simpler self-hostable open-source implementation, see my old project [here](https://github.com/jamesyoung-15/serverless-face-blurring), where I used OpenFaaS in place of Lambda, MinIO instead of S3, and MTCNN instead of Rekognition.
 
 ## Demo
 
-TODO.
+Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
 
 ## Tech Stack
 
 ### AWS Infrastructure
 
-![Diagram](./assets/Diagram.drawio.png)
+![Diagram](./media/Diagram.drawio.png)
 
 #### Upload Image Process
 

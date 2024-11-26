@@ -81,25 +81,41 @@
                 </div>
                 <button class="button is-warning is-hidden js-modal-trigger" data-target="modal-js-example" id="blur-button">Detect and Blur Faces!</button>
             </div>
-            <div class="modal" id="modal">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                  <header class="modal-card-head">
-                    <p class="modal-card-title">Blurring Progress</p>
-                    <button class="delete" aria-label="close" id="close-modal"></button>
-                  </header>
-                  <section class="modal-card-body" id="modal-message">
-                    <h1 class="subtitle has-text-danger">Please do not refresh page!</h1>
-                    <p>Uploading Image...</p>
-                  </section>
-                  <footer class="modal-card-foot is-hidden">
-                    <div class="buttons">
-                      <button class="button is-success">Download New Image</button>
-                    </div>
-                  </footer>
-                </div>
-              </div>
           </section>
+          <!-- Modals -->
+          <div class="modal" id="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <div class="modal-card-title">
+                    <h1 class="title">Blurring Progress</h1>
+                    <h2 class="modal-card-title has-text-danger">Please do not refresh page!</h2>
+                </div>
+                <button class="delete" aria-label="close" id="close-modal"></button>
+              </header>
+              <section class="modal-card-body" id="modal-message">
+                <p>Uploading Image...</p>
+              </section>
+              <footer class="modal-card-foot is-hidden">
+                <div class="buttons">
+                  <button class="button is-success">Download New Image</button>
+                </div>
+              </footer>
+            </div>
+          </div>
+          <div class="modal" id="error-modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title has-text-danger">Error!</p>
+                <button class="delete" aria-label="close" id="close-error-modal"></button>
+              </header>
+              <section class="modal-card-body" id="modal-message">
+                <p>Error encountered!</p>
+                <span id="error-modal-message">Something went wrong...</span>
+              </section>
+            </div>
+          </div>
           <section class="container my-auto mx-auto">
             <figure class="image my-auto mx-auto is-5by4 mx-2 blur-example">
                 <img src="assets/image-blur-example.png" />

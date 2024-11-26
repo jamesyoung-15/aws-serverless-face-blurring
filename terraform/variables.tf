@@ -16,8 +16,15 @@ variable "site_domain" {
   default     = "jyylab.com"
 }
 
-variable "subdomain" {
+variable "subdomain_website" {
   description = "Subdomain for static site."
   type        = string
-  default     = "faceblur.jyylab.com"
+  default     = "faceblur"
+}
+
+variable "subdomain_api" {
+  description = "Subdomain for API Gateway."
+  type        = string
+  default     = "api.faceblur"
+  
 }

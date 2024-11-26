@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "site_bucket" {
-  bucket = var.subdomain
+  bucket = "${var.subdomain_website}.${var.site_domain}"
 }
 
 resource "aws_s3_bucket_public_access_block" "site_public_access" {
@@ -72,7 +72,7 @@ data "cloudflare_zones" "domain" {
 
 resource "cloudflare_record" "site_cname" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = var.subdomain
+  name    = "${var.subdomain_website}.${var.site_domain}"
   value   = aws_s3_bucket_website_configuration.site_bucket_website_config.website_endpoint
   type    = "CNAME"
 
@@ -82,8 +82,8 @@ resource "cloudflare_record" "site_cname" {
 
 resource "cloudflare_record" "www" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = "www"
-  value   = var.subdomain
+  name    = "www.${var.subdomain_website}.${var.site_domain}"
+  value   = "${var.subdomain_website}.${var.site_domain}"
   type    = "CNAME"
 
   ttl     = 1

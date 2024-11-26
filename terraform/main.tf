@@ -73,6 +73,17 @@ resource "aws_lambda_permission" "api_gateway_upload_lambda_permission" {
   source_arn = "${aws_apigatewayv2_api.api_gateway.execution_arn}/*/*/*"
 }
 
+# Create CNAMES for API Gateway
+resource "cloudflare_record" "api_gateway_cname" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  name    = "${var.subdomain_api}.${var.site_domain}"
+  value   = "${aws_apigatewayv2_api.api_gateway.api_endpoint}/prod"
+  type    = "CNAME"
+
+  ttl     = 1
+  proxied = true
+}
+
 # DynamoDB Table to store the job status
 resource "aws_dynamodb_table" "jobs_table" {
   name         = "Face-Blurring-Jobs"

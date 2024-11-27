@@ -1,12 +1,14 @@
 # AWS Serverless Image Face Blurring
 
-Serverless application that blurs faces in an image using AWS services (Rekognition, S3, SQS, etc.). Not completed yet.
+Serverless event-driven application that blurs faces in an image using AWS services (Rekognition, S3, SQS, Lambda, DynamoDB).
 
 Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
 
 For a simpler self-hostable open-source implementation, see my old project [here](https://github.com/jamesyoung-15/serverless-face-blurring), where I used OpenFaaS in place of Lambda, MinIO instead of S3, and MTCNN instead of Rekognition.
 
 ## Demo
+
+![Website Blurring Demo](./media/face-blur-demo.gif)
 
 Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
 
@@ -15,6 +17,18 @@ Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
 ### AWS Infrastructure
 
 ![Diagram](./media/Diagram.drawio.png)
+
+### Languages/Frameworks/Libraries
+
+- Front-End
+  - HTML
+  - Bulma Framework + CSS
+  - Javascript
+    - CompressJS
+- Lambda
+  - Python (Pillow + Boto3)
+- IaC
+  - Terraform
 
 #### Upload Image Process
 
@@ -29,16 +43,5 @@ Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
 #### Front-End
 
 - Using Cloudflare for DNS and also includes CDN and TLS with static website stored on S3
-- User chooses image to upload, triggers PUT request through API
+- User chooses image to upload, image is compressed before sending, triggers PUT request through API
 - After upload, website will poll every few seconds for job update until completed, then show new image to user available to download
-
-### Languages/Frameworks/Libraries
-
-- Front-End
-  - HTML
-  - CSS + Bulma Framework
-  - Javascript
-- Lambda
-  - Python (Pillow + Boto3)
-- IaC
-  - Terraform

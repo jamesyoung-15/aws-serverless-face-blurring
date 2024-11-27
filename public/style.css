@@ -35,6 +35,9 @@ footer {
     max-height: 500px;
 }
 
+.min-preview{
+    max-height: 128px;
+}
 
 @media screen and (max-height: 1210px) {
     .blur-example{

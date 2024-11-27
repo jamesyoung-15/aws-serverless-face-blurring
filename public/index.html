@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Blurring</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href="style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/2e277278ff.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body> 
     <!-- NavBar Header -->
     <header class="bd-header mb-3">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item has-text-weight-bold has-text-white-bis has-background-link m-3 p-2 button" href="#">
-                    JYY Labs
+                    James Young
                 </a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -62,9 +63,9 @@
             <div class="blur-about has-text-centered">
                 <h1 class="title">Image Face Blurring</h1>
                 <h2 class="subtitle pt-4">
-                    Upload an image with human faces and the faces in the image will be blurred for anonymity.
+                    Upload an image with human faces and the faces in the image will be blurred automatically for anonymity.
                 </h2>
-                <h2 class="subtitle">Max image size: 14MB</h2>
+                <h2 class="subtitle">Files are compressed client-side. If your image is too large it may be rejected (>35 MB). </h2>
             </div>
             <div class="container is-centered has-text-centered mt-6">
                 <div class="file is-centered is-danger has-name is-boxed">
@@ -94,26 +95,54 @@
                 <button class="delete is-hidden" aria-label="close" id="close-modal"></button>
               </header>
               <section class="modal-card-body" id="modal-message">
-                <p>Uploading Image...</p>
               </section>
-              <footer class="modal-card-foot is-hidden">
-                <div class="buttons">
-                  <button class="button is-success">Download New Image</button>
-                </div>
+              <footer class="modal-card-foot">
+                    <progress class="progress is-small is-primary" id="blur-progress" max="100">15%</progress>
               </footer>
             </div>
           </div>
-          <div class="modal" id="error-modal">
+          <div class="modal" id="confidence-modal">
             <div class="modal-background"></div>
             <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title has-text-danger">Error!</p>
-                <button class="delete" aria-label="close" id="close-error-modal"></button>
-              </header>
-              <section class="modal-card-body" id="modal-message">
-                <p>Error encountered!</p>
-                <span id="error-modal-message">Something went wrong...</span>
-              </section>
+                <header class="modal-card-head">
+                    <div class="modal-card-title">
+                        <h1 class="title">Set Face Detection Confidence</h1>
+                    </div>
+                    <button class="delete" aria-label="close" id="close-confidence-modal"></button>
+                </header>
+                <section class="modal-card-body" id="confidence-message">
+                    <h3 class="subtitle">Set a confidence threshold for face detection.</h3>
+                    <h4 class="subtitle">Enter a numerical value between 10 - 95 (default 50): </h4>
+                    <input class="input is-primary mb-3" id="confidence-threshold" type="number" placeholder="50" min="20" max="95"/>
+                    <!-- <progress class="progress is-success mb-3" value="50" max="100">50%</progress> -->
+                     <article class="message is-danger is-hidden" id="confidence-threshold-error">
+                        <div class="message-body" id="confidence-error">
+                            Please enter a valid number between 20 - 95.
+                        </div>
+                     </article>
+                    <div>Larger confidence = Less likely for false positives, but may miss some faces.</div> 
+                    <div>Smaller confidence = More likely for false positives, but detects more faces.</div>
+                    <div>False positive = Detects face when it is not. </div>
+                </section>
+                <footer class="modal-card-foot has-text-centered">
+                    <div class="buttons">
+                        <button class="button is-success" id="confidence-button">Set Confidence and Blur Your Photo!</button>
+                    </div>
+                </footer>
+            </div>
+          </div>
+          <div class="modal" id="size-error">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <div class="modal-card-title">
+                        <h1 class="title">File Too Large!</h1>
+                    </div>
+                    <button class="delete" aria-label="close" id="close-too-large"></button>
+                </header>
+                <section class="modal-card-body">
+                    <h3 class="subtitle has-text-danger">The file you uploaded is too large! Only able to compress down to <span id="file-size"></span>. Please choose a smaller file.</h3>
+                </section>
             </div>
           </div>
           <section class="container my-auto mx-auto">
@@ -141,5 +170,6 @@
     <!-- Scripts -->
      <script src="./fileupload.js"></script>
     <script src="./ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.2.1/compressor.min.js" integrity="sha512-MgYeYFj8R3S6rvZHiJ1xA9cM/VDGcT4eRRFQwGA7qDP7NHbnWKNmAm28z0LVjOuUqjD0T9JxpDMdVqsZOSHaSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

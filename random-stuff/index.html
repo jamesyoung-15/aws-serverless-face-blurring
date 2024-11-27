@@ -6,43 +6,9 @@
     <title>Image Upload</title>
 </head>
 <body>
-    <h1>Upload an Image</h1>
-    <form id="uploadForm">
-        <input type="file" id="imageInput" accept="image/*" required>
-        <button type="submit">Upload Image</button>
-    </form>
-    <div id="result"></div>
+    
 
-    <script>
-        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const fileInput = document.getElementById('imageInput');
-            const file = fileInput.files[0];
-
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.onloadend = async function() {
-                    // The result is a base64 encoded string
-                    const base64Image = reader.result.split(',')[1]; // Get the base64 string without the prefix
-                    
-                    // Send the base64 string to your API
-                    const response = await fetch('https://j0mahdemk2.execute-api.us-east-1.amazonaws.com/prod/upload', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ content: base64Image })
-                    });
-
-                    const result = await response.json();
-                    document.getElementById('result').innerText = result.message;
-                };
-
-                reader.readAsDataURL(file); // Read the file as a Data URL
-            }
-        });
-    </script>
+    
+    <script src="./test.js"></script>
 </body>
 </html>

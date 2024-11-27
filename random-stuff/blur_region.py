@@ -17,17 +17,19 @@ def blur_image_region(image_path, output_path, region):
     # Crop the region from the original image
     region_to_blur = image.crop(box)
 
-    region_to_blur.show()
+    # region_to_blur.show()
 
     # Apply Gaussian blur to the cropped region
-    blurred_region = region_to_blur.filter(ImageFilter.GaussianBlur(radius=7))  # Adjust radius as needed
+    blurred_region = region_to_blur.filter(ImageFilter.GaussianBlur(radius=12))  # Adjust radius as needed
 
     # Paste the blurred region back into the original image
     image.paste(blurred_region, box)
 
+    image.show()
+
     # Save the modified image
-    image.save(output_path)
+    # image.save(output_path)
 
 
 if __name__ == "__main__":
-    blur_image_region("../assets/messi.jpg", "../assets/messi-blurred.jpg", (155, 30, 245, 145))
+    blur_image_region("../media/messi.jpg", "../media/messi-blurred.jpg", (155, 30, 245, 145))

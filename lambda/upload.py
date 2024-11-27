@@ -15,7 +15,8 @@ def lambda_handler(event, context):
     bucket = os.environ['BUCKET_NAME']
     payload = json.loads(event['body'])
     image = payload['content']
-    print(image)
+    confidence_threshold = payload['confidenceThreshold']
+    # print(image)
     image_data = base64.b64decode(image + "===") # add padding to avoid incorrect padding error
     unique_str = str(uuid.uuid4().hex)
     key = f"{unique_str}.jpg"
@@ -41,7 +42,8 @@ def lambda_handler(event, context):
         Item={
             'jobId': unique_str,
             'status': 'PENDING',
-            'expireAt': expiration_time
+            'expireAt': expiration_time,
+            'confidenceThreshold': int(confidence_threshold)
         }
     )
     

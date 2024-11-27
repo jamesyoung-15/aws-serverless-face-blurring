@@ -1,4 +1,4 @@
-name: Upload Website
+name: Sync Static Website to S3
 
 on:
   push:
@@ -22,4 +22,4 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: us-east-1
     - name: Sync Website to S3
-      run: aws s3 sync ./public s3://${{secrets.AWS_BUCKET_NAME}} --delete
+      run: aws s3 sync ./public s3://${{secrets.AWS_WEBSITE_BUCKET_NAME}} --delete

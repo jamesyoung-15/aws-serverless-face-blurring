@@ -210,11 +210,11 @@ resource "aws_iam_role_policy" "iam_policy_lambda" {
         "Resource" : "arn:aws:logs:*:*:*"
       },
       {
-        "Effect": "Allow",
-        Action: [
+        "Effect" : "Allow",
+        Action : [
           "rekognition:DetectFaces"
         ],
-        "Resource": "*"
+        "Resource" : "*"
       }
     ]
   })
@@ -234,8 +234,8 @@ resource "aws_lambda_function" "upload_image_lambda" {
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "upload.lambda_handler"
 
-  runtime = "python3.12"
-  timeout = 30
+  runtime     = "python3.12"
+  timeout     = 30
   memory_size = 512
 
   environment {
@@ -249,7 +249,7 @@ resource "aws_lambda_function" "upload_image_lambda" {
     "terraform_managed" = "true"
   }
 
-  depends_on = [ aws_cloudwatch_log_group.cloudwatch_upload_lambda, aws_iam_role_policy_attachment.iam_lambda ]
+  depends_on = [aws_cloudwatch_log_group.cloudwatch_upload_lambda, aws_iam_role_policy_attachment.iam_lambda]
 }
 
 # cloudwatch log group for upload lambda
@@ -308,8 +308,8 @@ resource "aws_lambda_function" "blur_lambda" {
 
   layers = [var.pillow_layer_arn]
 
-  runtime = "python3.12"
-  timeout = 30
+  runtime     = "python3.12"
+  timeout     = 30
   memory_size = 1024
 
   environment {
@@ -323,7 +323,7 @@ resource "aws_lambda_function" "blur_lambda" {
     "terraform_managed" = "true"
   }
 
-  depends_on = [ aws_cloudwatch_log_group.cloudwatch_blur_lambda, aws_iam_role_policy_attachment.iam_lambda ]
+  depends_on = [aws_cloudwatch_log_group.cloudwatch_blur_lambda, aws_iam_role_policy_attachment.iam_lambda]
 }
 
 
@@ -353,8 +353,8 @@ resource "aws_lambda_function" "get_job_lambda" {
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "get_image.lambda_handler"
 
-  runtime = "python3.12"
-  timeout = 30
+  runtime     = "python3.12"
+  timeout     = 30
   memory_size = 512
 
   environment {
@@ -368,7 +368,7 @@ resource "aws_lambda_function" "get_job_lambda" {
     "terraform_managed" = "true"
   }
 
-  depends_on = [ aws_cloudwatch_log_group.cloudwatch_get_job_lambda, aws_iam_role_policy_attachment.iam_lambda ]
+  depends_on = [aws_cloudwatch_log_group.cloudwatch_get_job_lambda, aws_iam_role_policy_attachment.iam_lambda]
 }
 
 # cloudwatch log group for get job lambda

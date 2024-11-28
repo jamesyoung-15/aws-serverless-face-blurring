@@ -1,0 +1,8 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: Terraform Format
+        name: Terraform Format
+        files: ^terraform/.*\.(tf|tfvars)$
+        entry: terraform fmt -recursive
+        language: system

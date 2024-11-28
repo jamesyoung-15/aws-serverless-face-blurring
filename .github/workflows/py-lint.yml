@@ -1,0 +1,24 @@
+name: Pylint
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'lambda/**'
+
+jobs:
+    test:
+        name: Pylint
+        runs-on: self-hosted
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        - name: Set up Python 3.12
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.12
+        - name: Run Tests
+          run: |
+            pip install pylint
+            pylint lambda --fail-under=5.5

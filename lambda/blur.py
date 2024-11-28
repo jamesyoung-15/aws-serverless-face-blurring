@@ -17,10 +17,8 @@ def lambda_handler(event, context):
     for message in event['Records']:
         process_message(message)
     print("Completed processing all messages")
-    
-    
-    
-    
+       
+       
 def process_message(message):
     """ 
     This function processes the message from SQS.
@@ -51,8 +49,7 @@ def process_message(message):
         print("Error processing message")
         raise e
         
-    
-        
+
 def blur_face(image, key, db_key):
     """
     This function calls Rekognition, blurs the face in the image, then updates the job status. 

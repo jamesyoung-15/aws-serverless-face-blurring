@@ -50,7 +50,6 @@ def lambda_handler(event, context):
     # response message
     response_message = "Image uploaded successfully!"
     
-    
     return {
         'statusCode': 200,
         'headers': {

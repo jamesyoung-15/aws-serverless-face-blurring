@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - master
-  path:
+    paths:
     - 'public/**'
 
 jobs:
@@ -22,4 +22,4 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: us-east-1
     - name: Sync Website to S3
-      run: aws s3 sync ./public s3://${{secrets.AWS_WEBSITE_BUCKET_NAME}} --delete
+      run: aws s3 sync ./public s3://faceblur.jyylab.com --delete

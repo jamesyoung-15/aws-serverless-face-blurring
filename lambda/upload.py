@@ -1,12 +1,20 @@
 import json
-import boto3
-from botocore.exceptions import ClientError
 import base64
 import os
 import uuid
 from datetime import datetime, timedelta
+import boto3
+from botocore.exceptions import ClientError
 
 def lambda_handler(event, context):
+    """ Reads the image from the request, uploads it to S3, and creates a job tracking entry in DynamoDB.
+    Args:
+      event: dict, contains the request payload, including the image in base64 and confidence threshold in JSON format
+      context: not used
+    
+    Returns:
+        dict: contains the response message and job ID
+    """
     # get service resources
     s3 = boto3.client("s3")
     dynamodb = boto3.resource('dynamodb')
@@ -46,7 +54,6 @@ def lambda_handler(event, context):
             'confidenceThreshold': int(confidence_threshold)
         }
     )
-    
     # response message
     response_message = "Image uploaded successfully!"
     

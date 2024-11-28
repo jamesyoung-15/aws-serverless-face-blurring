@@ -1,9 +1,17 @@
+import os
 import boto3
 import json
-import os
-import base64
 
 def lambda_handler(event, context):
+    """
+    Reads the job ID from the request, checks the job status in DynamoDB, and returns the image URL if the job is complete.
+    
+    Args:
+        event: dict, contains the request payload, including the job ID
+        context: not used
+    Response:
+        dict: contains the response message, job ID, and image URL (if job is complete)
+    """
 
     # get service resources
     s3 = boto3.client("s3")

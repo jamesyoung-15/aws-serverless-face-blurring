@@ -1,8 +1,8 @@
-import boto3
-from PIL import Image, ImageFilter, ImageDraw
 import json
 import os
 from io import BytesIO
+import boto3
+from PIL import Image, ImageFilter, ImageDraw
 
 # get service resources
 s3 = boto3.client("s3")
@@ -59,7 +59,7 @@ def blur_face(image, key, db_key):
     """
     # Setup canvas for blur
     image_width, image_height = image.size
-    draw = ImageDraw.Draw(image)
+    # draw = ImageDraw.Draw(image)
     # Detect faces
     try:
         response = rekognition.detect_faces(Image={'S3Object': {'Bucket': bucket, 'Name': key}})

@@ -1,52 +1,55 @@
-html, body { height: 100vh; }
-
-header{
-    /* max-height: 10vh; */
-    border-bottom: 1px solid;
-    border-bottom-color: #25262b;
+html,
+body {
+  height: 100vh;
 }
 
-main{
-    min-height: 87vh;
+header {
+  /* max-height: 10vh; */
+  border-bottom: 1px solid;
+  border-bottom-color: #25262b;
+}
+
+main {
+  min-height: 87vh;
 }
 
 footer {
-    max-height: 1vh;
-    border-top: 1px solid;
-    border-top-color: #25262b;
-    /* position:absolute; */
-    /* bottom:0; */
-    /* width: 100%; */
+  max-height: 1vh;
+  border-top: 1px solid;
+  border-top-color: #25262b;
+  /* position:absolute; */
+  /* bottom:0; */
+  /* width: 100%; */
 }
 
-.login-container{
-    padding-top: 15%;
+.login-container {
+  padding-top: 15%;
 }
 
-.submit-button{
-    padding: 30px;
+.submit-button {
+  padding: 30px;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-.blur-example{
-    max-height: 500px;
+.blur-example {
+  max-height: 500px;
 }
 
-.min-preview{
-    max-height: 128px;
+.min-preview {
+  max-height: 128px;
 }
 
 @media screen and (max-height: 1210px) {
-    .blur-example{
-        max-height: 300px;
-    }
+  .blur-example {
+    max-height: 300px;
+  }
 }
 
 @media screen and (max-height: 800px) {
-    .blur-example{
-        max-height: 200px;
-    }
+  .blur-example {
+    max-height: 200px;
+  }
 }

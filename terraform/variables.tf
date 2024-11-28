@@ -38,7 +38,7 @@ variable "upload_function_name" {
   description = "Name for the upload image Lambda function."
   type        = string
   default     = "face-blurring-upload-image"
-  
+
 }
 
 variable "blur_function_name" {

@@ -3,6 +3,7 @@ repos:
     hooks:
     -   id: Terraform Format
         name: Terraform Format
-        files: ^terraform/.*\.(tf|tfvars)$
+        # files: ^terraform/.*\.(tf|tfvars)$
         entry: terraform fmt -recursive
         language: system
+        pass_filenames: false

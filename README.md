@@ -1,6 +1,6 @@
 # AWS Serverless Image Face Blurring
 
-Serverless event-driven application that blurs faces in an image using ReactJS, AWS services (Rekognition, S3, SQS, Lambda, DynamoDB, API Gateway), Github Actions for CI/CD, Terraform for deployment.
+Open-source serverless event-driven application that blurs faces in an image using ReactJS, AWS services (Rekognition, S3, SQS, Lambda, DynamoDB, API Gateway), Github Actions for CI/CD, Terraform for deployment.
 
 Application website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com).
 
@@ -114,4 +114,13 @@ Test your domain, anytime you make changes sync S3 bucket and consider clearing 
 
 ## Self-Hosted Project
 
-For a simpler self-hostable open-source implementation, see my old project [here](https://github.com/jamesyoung-15/serverless-face-blurring), where I used OpenFaaS in place of Lambda, MinIO instead of S3, and MTCNN instead of Rekognition. This implementation does not use event driven architecture as above.
+For a completely self-hostable open-source implementation (no Cloud services), see my old project [here](https://github.com/jamesyoung-15/serverless-face-blurring), where I used OpenFaaS in place of Lambda, MinIO instead of S3, and MTCNN instead of Rekognition. This implementation does not use event driven architecture as above.
+
+## Potential Todo
+
+Current project kinda low complexity (albeit supposed to just be mainly for learning), can expand with:
+
+- Add video face-blur support (note: free tier Rekognition is 60 min per month, may need to self-host)
+- Login support w/ persistent storage
+- Custom image manipulation tools (cropperjs w/ some other tools?)
+  - Custom crop, custom blur, image impainting, etc.

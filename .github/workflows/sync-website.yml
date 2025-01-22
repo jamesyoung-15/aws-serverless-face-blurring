@@ -3,7 +3,7 @@ name: Sync Website to S3
 on:
   push:
     branches:
-    - master
+    - main
     paths:
     - 'front-end/**'
 

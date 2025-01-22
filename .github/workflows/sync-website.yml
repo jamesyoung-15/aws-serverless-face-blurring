@@ -17,10 +17,12 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd front-end
         npm install
 
     - name: Build the project
       run: |
+        cd front-end
         npm run build
 
     - name: Configure AWS Credentials
@@ -32,4 +34,5 @@ jobs:
         aws-region: us-east-1
 
     - name: Sync Website to S3
-      run: aws s3 sync dist s3://faceblur.jyylab.com --delete
+      run: | 
+        aws s3 sync ./front-end/dist s3://faceblur.jyylab.com --delete

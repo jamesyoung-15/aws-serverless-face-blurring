@@ -1,0 +1,101 @@
+html,
+body {
+  height: 100vh;
+}
+
+header {
+  /* max-height: 10vh; */
+  border-bottom: 1px solid;
+  border-bottom-color: #25262b;
+}
+
+main {
+  min-height: 87vh;
+}
+
+footer {
+  max-height: 1vh;
+  border-top: 1px solid;
+  border-top-color: #25262b;
+  /* position:absolute; */
+  /* bottom:0; */
+  /* width: 100%; */
+}
+
+.login-container {
+  padding-top: 15%;
+}
+
+.submit-button {
+  padding: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.blur-example {
+  max-height: 500px;
+}
+
+.min-preview {
+  max-height: 128px;
+}
+
+.footer-gh {
+  margin-right: 5px;
+}
+
+@media screen and (max-height: 1210px) {
+  .blur-example {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .blur-example {
+    max-height: 200px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .modal {
+    .modal-card-head{
+      .title{
+        font-size: 24px;
+      }
+      .modal-card-title {
+        font-size: 22px;
+      }
+      .delete{
+        --bulma-delete-dimensions: 1rem;
+        max-width: 1rem;
+        max-height: 1rem;
+      }
+    }
+    .modal-card-body .subtitle{
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .modal {
+    .modal-card-head{
+      .title{
+        font-size: 16px;
+      }
+      .modal-card-title{
+        font-size: 14px;
+      }
+      .delete{
+        --bulma-delete-dimensions: 0.9rem;
+        max-width: 1rem;
+        max-height: 1rem;
+      }
+    }
+    .modal-card-body .subtitle{
+      font-size: 14px;
+    }
+  }
+}

@@ -50,6 +50,68 @@ Users poll for the image job status via the API and Lambda every few seconds. Th
 
 As mentioned above, SQS is used to create events and queue them for processing from Rekognition. This allows for retries when a request fails so that the image blur request can eventually be fulfilled.
 
+## Build Project for Yourself
+
+### Prerequisites
+
+- AWS account w/ associated credentials that allow you to create resources
+  - With free tier this application can be free since Rekognition allows a few thousand face detections for free each month
+- Terraform CLI
+- Cloudflare domain + API Token (Zone.Page Rules, Zone.DNS permissions)
+
+### Build Instructions
+
+Clone repo:
+
+``` bash
+git clone https://github.com/jamesyoung-15/aws-serverless-face-blurring
+```
+
+Overwrite existing Terraform variables (aws_profile, domains, api token, etc.):
+
+``` conf
+aws_profile          = "Default"
+site_domain          = "yourdomainwithCloudflare.com"
+... Other variables ...
+cloudflare_api_token = "yourCloudflareAPIToken"
+```
+
+Deploy with Terraform, take note of API:
+
+``` bash
+terraform init
+terraform plan
+terraform apply
+```
+
+Add API created by Terraform to front-end in `front-end/src/ImageUploader.jsx` (better to add this to a secrets/env file to hide API rather than what I'm doing):
+
+``` js
+... Output Omitted ...
+const api = "yourapi.region..amazonaws.com/prod"
+const uploadApi = `${api}/upload`;
+const jobsApi = `${api}/jobs`;
+... Output Omitted ...
+```
+
+Install front-end dependencies and test locally:
+
+``` bash
+cd front-end
+npm install
+npm run dev # if this works proceed
+```
+
+Build React and sync `dist` to S3 bucket (bucket name is your site domain) to serve site:
+
+``` bash
+npm run build
+# can test with serve -s dist, requires npm serve package
+aws s3 sync ./dist s3://faceblur.yourdomain.com --delete --profile default
+```
+
+Test your domain, anytime you make changes sync S3 bucket and consider clearing Cloudflare and local cache to see changes immediately.
+
 ## Self-Hosted Project
 
 For a simpler self-hostable open-source implementation, see my old project [here](https://github.com/jamesyoung-15/serverless-face-blurring), where I used OpenFaaS in place of Lambda, MinIO instead of S3, and MTCNN instead of Rekognition. This implementation does not use event driven architecture as above.

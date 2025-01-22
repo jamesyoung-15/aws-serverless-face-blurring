@@ -118,7 +118,7 @@ For a completely self-hostable open-source implementation (no Cloud services), s
 
 ## Potential Todo
 
-Current project kinda low complexity (albeit supposed to just be mainly for learning), can expand with:
+Current project can have better complexity (project purpose afterall is for learning), can expand with:
 
 - Add video face-blur support (note: free tier Rekognition is 60 min per month, may need to self-host)
 - Login support w/ persistent storage

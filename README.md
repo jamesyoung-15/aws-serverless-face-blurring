@@ -29,6 +29,8 @@ Website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com)
   - Python (Pillow + Boto3)
 - IaC
   - Terraform
+- Integration Testing
+  - Python (unittest)
 
 #### Front-End
 
@@ -124,3 +126,7 @@ Current project can have better complexity (project purpose afterall is for lear
 - Login support w/ persistent storage
 - Custom image manipulation tools (cropperjs w/ some other tools?)
   - Custom crop, custom blur, image impainting, etc.
+
+## Documentation
+
+My extra notes [here](./Docs.md) (eg. POST request format, response format, etc.).

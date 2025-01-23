@@ -1,6 +1,6 @@
 # AWS Serverless Image Face Blurring
 
-Open-source serverless event-driven application that blurs faces in an image using ReactJS, AWS services (Rekognition, S3, SQS, Lambda, DynamoDB, API Gateway), Github Actions for CI/CD, Terraform for deployment.
+Serverless event-driven application that blurs faces in an image using ReactJS, AWS services (Rekognition, S3, SQS, Lambda, DynamoDB, API Gateway), Github Actions for CI/CD, Terraform for deployment.
 
 Application website: [https://faceblur.jyylab.com](https://faceblur.jyylab.com).
 
